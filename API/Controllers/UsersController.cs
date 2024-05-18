@@ -28,5 +28,4 @@ public class UsersController : ControllerBase
     {
         return await _context.Users.FindAsync(id);
     }
-
 }

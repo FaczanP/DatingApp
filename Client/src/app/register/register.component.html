@@ -1,8 +1,15 @@
-<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+<form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+    <!-- #registerForm="ngForm" it was before it was changed to [formGroup]=""] -->
     <h2 class="text-center text-primary">Sign up</h2>
     <hr>
     <div class="mb-3">
-        <input class="form-control" type="text" name="username" [(ngModel)]="model.username" placeholder="Username">
+        <input 
+        class="form-control" 
+        type="text" name="username" 
+        formControlName="username"
+        placeholder="Username">
+        <!-- [(ngModel)]="model.username"  -->
+
     </div>
     <!-- <div class="mb-3">
         <label>Who is your favourite user ?</label>
@@ -13,10 +20,28 @@
         </select>
     </div> -->
     <div class="mb-3">
-        <input class="form-control" type="paű" name="password" [(ngModel)]="model.password" placeholder="Password">
+        <input 
+        class="form-control" 
+        type="paű" name="password" 
+        formControlName="password" 
+        placeholder="Password">
+        <!-- [(ngModel)]="model.password" -->
     </div>
+
+    <div class="mb-3">
+        <input 
+        class="form-control" 
+        type="paű" name="password" 
+        formControlName="confirmPassword" 
+        placeholder="Confirm Password">
+        <!-- [(ngModel)]="model.password" -->
+    </div>
+
     <div class="text-center">
         <button class="btn btn-success me-3" type="submit">Register</button>
         <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
     </div>
 </form>
+
+<p>Form value : {{registerForm.value | json}}</p>
+<p>Form status : {{registerForm.status | json}}</p>

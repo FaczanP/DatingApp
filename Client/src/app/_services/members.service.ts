@@ -79,7 +79,6 @@ export class MembersService {
 
     if (member) return of(member);
 
-    //console.log(member);
     // const member = this.members.find(x => x.userName == username);
     return this.http.get<Member>(this.baseUrl + 'users/' + username) //, this.getHttpOptions())
 

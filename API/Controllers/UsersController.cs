@@ -23,6 +23,7 @@ public class UsersController : BaseApiController
     }
 
     //[AllowAnonymous]
+    // [Authorize(Roles = "Admin")] test sectio 16
     [HttpGet]
     public async Task<ActionResult<PagedList<MemberDto>>> GetUsers([FromQuery] UserParams userParams)
     {
@@ -41,6 +42,7 @@ public class UsersController : BaseApiController
         return Ok(users);
     }
 
+    // [Authorize(Roles = "Member")] test sectio 16
     [HttpGet("{username}")]  //api/users/id
     public async Task<ActionResult<MemberDto>> GetUser(string username)
     {

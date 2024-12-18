@@ -6,6 +6,7 @@ import { MembersService } from '../../_services/members.service';
 import { take } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
+import { ok } from 'assert';
 
 @Component({
   selector: 'app-member-edit',
@@ -35,7 +36,9 @@ export class MemberEditComponent implements OnInit {
   loadMember() {
     if (!this.user) return;
     this.memberService.getMember(this.user.username).subscribe({
-      next: member => this.member = member
+      next: member => {
+        this.member = member;
+      }
     })
   }
 

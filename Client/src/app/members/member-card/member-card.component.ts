@@ -2,6 +2,7 @@ import { Component, Input, input, OnInit, ViewEncapsulation } from '@angular/cor
 import { Member } from '../../_models/member';
 import { MembersService } from '../../_services/members.service';
 import { ToastrService } from 'ngx-toastr';
+import { PresenceService } from '../../_services/presence.service';
 
 @Component({
   selector: 'app-member-card',
@@ -13,7 +14,9 @@ export class MemberCardComponent implements OnInit{
 
 @Input() member: Member | undefined;
 
-constructor(private memberService: MembersService, private toastr: ToastrService){
+constructor(private memberService: MembersService, private toastr: ToastrService,
+  public presenceService: PresenceService
+){
 
 }
 
